@@ -22,6 +22,7 @@ def get_spec_files(directory):
     print("Discovered The Following Files To Use As Specs:")
     for f in files:
         print(f)
+    print("Number Of Tests Found - {}".format(len(files)))
     return files
 
 
@@ -33,19 +34,23 @@ specs = get_spec_files(spec_directory)
 
 while counter < len(specs):
     if len(client.containers.list()) < desired_containers:
+        test_name = specs[counter]
+        print("Counter {}".format(counter))
+        print("Starting Test {}".format(test_name))
         client.containers.run('cypress-tom',
                               remove=True,
-                              environment={"testtorun": specs[counter]},
+                              environment={"testtorun": test_name},
                               detach=True,
                               volumes={local_volume_to_map_to: {'bind': '/e2e', 'mode': 'rw'}}
                               )
         counter += 1
 
-for container in client.containers.list(all=True):
-    container.stop()
-    container.remove()
 
 
-# specs = ["bestbuy.spec.js", "sample.spec.js", "/examples/actions.spec.js", "/examples/aliasing.spec.js",
-#          "/examples/assertions.spec.js",
-#          "/examples/connectors.spec.js"]
+# def delete_all_containers():
+#     for container in client.containers.list(all=True):
+#         container.stop()
+#         container.remove()
+#
+# delete_all_containers()
+
