@@ -1,0 +1,86 @@
+{
+  "stats": {
+    "suites": 0,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-03-06T16:15:09.863Z",
+    "end": "2020-03-06T16:15:25.093Z",
+    "duration": 15230,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "277bfa2c-b755-482d-b123-b00d5d3461f9",
+      "title": "",
+      "fullFile": "cypress/integration/sample.spec.js",
+      "file": "cypress/integration/sample.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "test",
+          "fullTitle": " test",
+          "timedOut": null,
+          "duration": 11787,
+          "state": "passed",
+          "speed": "slow",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "cy.visit(\"http://google.com\");\ncy.get('[href=\"https://store.google.com/CA?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-CA\"]').click();\ncy.url().should('include', 'https://store.google.com/CA/?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-CA');\ncy.get('.hamburger > svg > path').click();\ncy.get('button[data-category-id=\"phones\"] > .cat-image').click();\ncy.get('[style=\"height: 496px;\"] > :nth-child(1) > .subcategory-links > .shop-all').click();\ncy.get('#meet-pixel-4 > .mqn2-aaz > .mqn2-ab0 > .mqn2-ab1 > .mqn2-af3 > .mqn2-af4 > .mqn2-af6 > :nth-child(1) > .mqn2-aal').click();",
+          "err": {},
+          "uuid": "864f0a83-aa75-42cf-878c-ffccdc2653ff",
+          "parentUUID": "277bfa2c-b755-482d-b123-b00d5d3461f9",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [],
+      "passes": [
+        "864f0a83-aa75-42cf-878c-ffccdc2653ff"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 11787,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "5.0.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

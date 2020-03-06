@@ -27,7 +27,7 @@ def get_spec_files(directory):
 
 
 local_volume_to_map_to = 'C:\\Users\\tom.rice\\Documents\\Cypress\\Cypress_Project'
-desired_containers = 2
+desired_containers = 4
 counter = 0
 client = docker.from_env()
 specs = get_spec_files(spec_directory)

@@ -1,0 +1,8 @@
+version: '3.2'
+services:
+  cypress:
+    image: cypress-tom
+    working_dir: /e2e
+    volumes:
+      - C:\Users\tom.rice\Documents\Cypress\Cypress_Project:/e2e
+    entrypoint: cypress run --reporter mochawesome --reporter-options "reportDir=results,overwrite=false,html=false,json=true" --spec "/e2e/cypress/integration/bestbuy.spec.js"

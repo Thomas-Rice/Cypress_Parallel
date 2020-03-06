@@ -1,0 +1,277 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 8,
+    "passes": 8,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-03-06T16:15:54.766Z",
+    "end": "2020-03-06T16:15:58.507Z",
+    "duration": 3741,
+    "testsRegistered": 8,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8d159727-da80-4a10-8211-3ad728ce7e4b",
+      "title": "",
+      "fullFile": "cypress/integration/examples/assertions.spec.js",
+      "file": "cypress/integration/examples/assertions.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d48ca0df-6941-49f3-be8a-6b39769414af",
+          "title": "Assertions",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "8be05c03-f718-4907-8e8b-8334d8fc4199",
+              "title": "Implicit Assertions",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": ".should() - make an assertion about the current subject",
+                  "fullTitle": "Assertions Implicit Assertions .should() - make an assertion about the current subject",
+                  "timedOut": null,
+                  "duration": 584,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// https://on.cypress.io/should\ncy.get('.assertion-table').find('tbody tr:last').should('have.class', 'success').find('td').first() // checking the text of the <td> element in various ways\n.should('have.text', 'Column content').should('contain', 'Column content').should('have.html', 'Column content') // chai-jquery uses \"is()\" to check if element matches selector\n.should('match', 'td') // to match text content against a regular expression\n// first need to invoke jQuery method text()\n// and then match using regular expression\n.invoke('text').should('match', /column content/i); // a better way to check element's text content against a regular expression\n// is to use \"cy.contains\"\n// https://on.cypress.io/contains\ncy.get('.assertion-table').find('tbody tr:last') // finds first <td> element with text content matching regular expression\n.contains('td', /column content/i).should('be.visible'); // for more information about asserting element's text\n// see https://on.cypress.io/using-cypress-faq#How-do-I-get-an-element’s-text-contents",
+                  "err": {},
+                  "uuid": "1749e891-fa24-43c2-9717-ab2531f05063",
+                  "parentUUID": "8be05c03-f718-4907-8e8b-8334d8fc4199",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": ".and() - chain multiple assertions together",
+                  "fullTitle": "Assertions Implicit Assertions .and() - chain multiple assertions together",
+                  "timedOut": null,
+                  "duration": 201,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// https://on.cypress.io/and\ncy.get('.assertions-link').should('have.class', 'active').and('have.attr', 'href').and('include', 'cypress.io');",
+                  "err": {},
+                  "uuid": "5ab8ad83-6109-4c0e-86c2-48201c1beeca",
+                  "parentUUID": "8be05c03-f718-4907-8e8b-8334d8fc4199",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1749e891-fa24-43c2-9717-ab2531f05063",
+                "5ab8ad83-6109-4c0e-86c2-48201c1beeca"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 785,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "7210953b-ef6e-4dda-89e6-a6334d73fa2a",
+              "title": "Explicit Assertions",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "expect - make an assertion about a specified subject",
+                  "fullTitle": "Assertions Explicit Assertions expect - make an assertion about a specified subject",
+                  "timedOut": null,
+                  "duration": 256,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// We can use Chai's BDD style assertions\nexpect(true).to.be[\"true\"];\nvar o = {\n  foo: 'bar'\n};\nexpect(o).to.equal(o);\nexpect(o).to.deep.equal({\n  foo: 'bar'\n}); // matching text using regular expression\nexpect('FooBar').to.match(/bar$/i);",
+                  "err": {},
+                  "uuid": "f1f13aee-4652-404b-b059-41b9536ca54e",
+                  "parentUUID": "7210953b-ef6e-4dda-89e6-a6334d73fa2a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "pass your own callback function to should()",
+                  "fullTitle": "Assertions Explicit Assertions pass your own callback function to should()",
+                  "timedOut": null,
+                  "duration": 274,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Pass a function to should that can have any number\n// of explicit assertions within it.\n// The \".should(cb)\" function will be retried\n// automatically until it passes all your explicit assertions or times out.\ncy.get('.assertions-p').find('p').should(function ($p) {\n  // https://on.cypress.io/$\n  // return an array of texts from all of the p's\n  // @ts-ignore TS6133 unused variable\n  var texts = $p.map(function (i, el) {\n    return Cypress.$(el).text();\n  }); // jquery map returns jquery object\n  // and .get() convert this to simple array\n  var paragraphs = texts.get(); // array should have length of 3\n  expect(paragraphs, 'has 3 paragraphs').to.have.length(3); // use second argument to expect(...) to provide clear\n  // message with each assertion\n  expect(paragraphs, 'has expected text in each paragraph').to.deep.eq(['Some text from first p', 'More text from second p', 'And even more text from third p']);\n});",
+                  "err": {},
+                  "uuid": "36685c6a-c4c2-4a27-b5ad-e42032dd50bd",
+                  "parentUUID": "7210953b-ef6e-4dda-89e6-a6334d73fa2a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "finds element by class name regex",
+                  "fullTitle": "Assertions Explicit Assertions finds element by class name regex",
+                  "timedOut": null,
+                  "duration": 263,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.docs-header').find('div') // .should(cb) callback function will be retried\n.should(function ($div) {\n  expect($div).to.have.length(1);\n  var className = $div[0].className;\n  expect(className).to.match(/heading-/);\n}) // .then(cb) callback is not retried,\n// it either passes or fails\n.then(function ($div) {\n  expect($div, 'text content').to.have.text('Introduction');\n});",
+                  "err": {},
+                  "uuid": "eb7f4c2e-b8c3-455b-b8aa-28a966c2a295",
+                  "parentUUID": "7210953b-ef6e-4dda-89e6-a6334d73fa2a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "can throw any error",
+                  "fullTitle": "Assertions Explicit Assertions can throw any error",
+                  "timedOut": null,
+                  "duration": 148,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.docs-header').find('div').should(function ($div) {\n  if ($div.length !== 1) {\n    // you can throw your own errors\n    throw new Error('Did not find 1 element');\n  }\n  var className = $div[0].className;\n  if (!className.match(/heading-/)) {\n    throw new Error(\"Could not find class \\\"heading-\\\" in \".concat(className));\n  }\n});",
+                  "err": {},
+                  "uuid": "4bd37c2f-96e8-4a68-9ce7-5b2a2d0beb91",
+                  "parentUUID": "7210953b-ef6e-4dda-89e6-a6334d73fa2a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "matches unknown text between two elements",
+                  "fullTitle": "Assertions Explicit Assertions matches unknown text between two elements",
+                  "timedOut": null,
+                  "duration": 208,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "/**\n * Text from the first element.\n * @type {string}\n*/\nvar text;\n/**\n * Normalizes passed text,\n * useful before comparing text with spaces and different capitalization.\n * @param {string} s Text to normalize\n*/\nvar normalizeText = function normalizeText(s) {\n  return s.replace(/\\s/g, '').toLowerCase();\n};\ncy.get('.two-elements').find('.first').then(function ($first) {\n  // save text from the first element\n  text = normalizeText($first.text());\n});\ncy.get('.two-elements').find('.second').should(function ($div) {\n  // we can massage text before comparing\n  var secondText = normalizeText($div.text());\n  expect(secondText, 'second text').to.equal(text);\n});",
+                  "err": {},
+                  "uuid": "d22948e7-f044-4f3b-82f8-5620c14cea85",
+                  "parentUUID": "7210953b-ef6e-4dda-89e6-a6334d73fa2a",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "assert - assert shape of an object",
+                  "fullTitle": "Assertions Explicit Assertions assert - assert shape of an object",
+                  "timedOut": null,
+                  "duration": 241,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "var person = {\n  name: 'Joe',\n  age: 20\n};\nassert.isObject(person, 'value is object');",
+                  "err": {},
+                  "uuid": "319e6cc4-4505-47ca-9135-bfa6fecf1679",
+                  "parentUUID": "7210953b-ef6e-4dda-89e6-a6334d73fa2a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f1f13aee-4652-404b-b059-41b9536ca54e",
+                "36685c6a-c4c2-4a27-b5ad-e42032dd50bd",
+                "eb7f4c2e-b8c3-455b-b8aa-28a966c2a295",
+                "4bd37c2f-96e8-4a68-9ce7-5b2a2d0beb91",
+                "d22948e7-f044-4f3b-82f8-5620c14cea85",
+                "319e6cc4-4505-47ca-9135-bfa6fecf1679"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1390,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "5.0.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}
